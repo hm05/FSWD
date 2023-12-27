@@ -1,0 +1,114 @@
+@font-face {
+    font-family: NotoSans-Medium;
+    src:url("../Assets/Fonts/google-logo-product-sans-betterstudio.com/ProductSansRegular.ttf")
+}
+
+body {
+    color: #202124;
+    font-family: NotoSans-Medium;
+}
+h3 {
+    font-size: 30px;
+    color: #4285f4;
+}
+h5 {
+    color : #0f9d58;
+}
+a {
+    text-decoration: none;
+    color : #202124;
+}
+a:hover {
+    color: #4285f4;
+    font-size: 16.5px;
+}
+span {
+    padding: 7px;
+}
+
+.navlogo {
+    display: block;
+    width: 150px;
+    margin: auto;
+    padding: 20px;
+}
+.MainBody {
+    display: flex;
+    margin: auto;
+}
+.center {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.sociallinks {
+    display: flex;
+    padding: 5px;
+}
+.github {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.mail {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.linkedin {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.footer {
+    background-color: #DBE0E9;
+    margin: auto;
+    color: #474747;
+    text-align: center;
+    padding: 10px;
+}
+.headings {
+    padding: 50px;
+}
+
+.bluehead {
+    padding: 10px;
+    color: #4285f4;
+    font-size: 40px;
+}
+.redhead {
+    padding: 10px;
+    color: #db4437;
+    font-size: 40px;
+}
+.yellowhead {
+    padding: 10px;
+    color: #f4b400;
+    font-size: 40px;
+}
+.greenhead {
+    padding: 10px;
+    color: #0F9D58;
+    font-size: 40px;
+}
+.pagelinks {
+    background-color: #ededed;
+    border-radius: 4px;
+}
+.pagelinks:hover {
+    color: #0F9D58;
+    font-size: 17px;
+}
+.myname:hover {
+    color: #4285f4;
+    font-size: 17px;
+}
+.skills:hover {
+    font-size: 17px;
+    color: #db4437;
+}
