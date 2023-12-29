@@ -25,6 +25,17 @@ a:hover {
 span {
     padding: 7px;
 }
+button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: NotoSans-Medium;
+    border-radius: 15px;
+    border-style: hidden;
+    margin-top: auto;
+    margin-bottom: auto;
+}
 
 .navlogo {
     display: block;
@@ -42,6 +53,12 @@ span {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+.download_button {
+    display: flex;
+    padding: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .sociallinks {
     display: flex;
