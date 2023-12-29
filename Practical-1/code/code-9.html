@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Task 9</title>
+    </head>
+    <body>
+        <script>
+            function performDelayedTask(callback) {
+                setTimeout(function() {
+                    let taskResult = "Delayed task executed.";
+                    callback(taskResult);
+                }, 2000);
+            }
+            // Example usage
+            performDelayedTask(function(result) {
+                console.log(result);
+            });
+        </script>
+    </body>
+</html>

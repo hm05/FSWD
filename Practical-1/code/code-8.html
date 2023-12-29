@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Task 8</title>
+    </head>
+    <body>
+        <script>
+            function validateNonNegativeNumber(value) {
+                if (value < 0) {
+                    throw new Error("Value cannot be negative");
+                }
+                console.log("The value is non-negative.");
+            }
+            // Example usage
+            try {
+                validateNonNegativeNumber(-5);
+            } catch (error) {
+                console.error(error.message);
+            }
+        </script>
+    </body>
+</html>
