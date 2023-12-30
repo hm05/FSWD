@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task-2</title>
+</head>
+<body>
+
+<script>
+  // Function to simulate fetching the first data
+  function fetchFirstData() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = 'First Data';
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  }
+
+  // Function to simulate fetching the second data
+  function fetchSecondData(firstData) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = `${firstData}, Second Data`;
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  }
+
+  // Function to simulate fetching the third data
+  function fetchThirdData(secondData) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = `${secondData}, Third Data`;
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  }
+
+  // Use Promise chaining to fetch data sequentially
+  fetchFirstData()
+    .then((firstData) => fetchSecondData(firstData))
+    .then((secondData) => fetchThirdData(secondData))
+    .then((finalResult) => {
+      // Log the combined result of all three data fetches
+      console.log('Combined Result:', finalResult);
+    })
+    .catch((error) => {
+      // Handle errors if any of the promises are rejected
+      console.error('Error:', error.message);
+    });
+</script>
+
+</body>
+</html>

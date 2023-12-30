@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task-6</title>
+</head>
+<body>
+<script>
+  // Asynchronous function to simulate fetching the first data
+  async function fetchFirstData() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = 'First Data';
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  }
+
+  // Asynchronous function to simulate fetching the second data
+  async function fetchSecondData(firstData) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = `${firstData}, Second Data`;
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  }
+
+  // Asynchronous function to simulate fetching the third data
+  async function fetchThirdData(secondData) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = `${secondData}, Third Data`;
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  }
+
+  // Use async/await to fetch data sequentially
+  async function fetchDataSequentially() {
+    try {
+      // Fetch the first data
+      const firstData = await fetchFirstData();
+      
+      // Fetch the second data using the first data
+      const secondData = await fetchSecondData(firstData);
+
+      // Fetch the third data using the second data
+      const thirdData = await fetchThirdData(secondData);
+
+      // Log the combined result of all three data fetches
+      console.log('Combined Result:', thirdData);
+    } catch (error) {
+      // Log any errors that occur during the data fetch
+      console.error('Error:', error.message);
+    }
+  }
+
+  // Call the fetchDataSequentially function
+  fetchDataSequentially();
+</script>
+</body>
+</html>

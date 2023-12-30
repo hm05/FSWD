@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task-3</title>
+</head>
+<body>
+<script>
+  // Function to simulate fetching data 1
+  function fetchData1() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = 'Data from Source 1';
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  }
+
+  // Function to simulate fetching data 2
+  function fetchData2() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = 'Data from Source 2';
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  }
+
+  // Function to simulate fetching data 3
+  function fetchData3() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const data = 'Data from Source 3';
+        resolve(data);
+      }, 2000); // 2-second delay
+    });
+  }
+
+  // Use Promise.all to fetch all three sets of data concurrently
+  Promise.all([fetchData1(), fetchData2(), fetchData3()])
+    .then((results) => {
+      // Log the combined result of all three data fetches
+      console.log('Combined Result:', results);
+    })
+    .catch((error) => {
+      // Handle errors if any of the promises are rejected
+      console.error('Error:', error.message);
+    });
+</script>
+</body>
+</html>
