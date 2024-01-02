@@ -24,6 +24,68 @@
     <pre>
       <code>
         <p>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Task-7&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            &lt;script&gt;
+            // Asynchronous function to simulate fetching data 1
+            async function fetchData1() {
+                return new Promise((resolve) =&gt; {
+                setTimeout(() =&gt; {
+                    const data = 'Data from Source 1';
+                    resolve(data);
+                }, 2000); // 2-second delay
+                });
+            }
+
+            // Asynchronous function to simulate fetching data 2
+            async function fetchData2() {
+                return new Promise((resolve) =&gt; {
+                setTimeout(() =&gt; {
+                    const data = 'Data from Source 2';
+                    resolve(data);
+                }, 2000); // 2-second delay
+                });
+            }
+
+            // Asynchronous function to simulate fetching data 3
+            async function fetchData3() {
+                return new Promise((resolve) =&gt; {
+                setTimeout(() =&gt; {
+                    const data = 'Data from Source 3';
+                    resolve(data);
+                }, 2000); // 2-second delay
+                });
+            }
+
+            // Use Promise.all with async/await to fetch all three sets of data concurrently
+            async function fetchAllDataConcurrently() {
+                try {
+                // Use Promise.all to fetch all three sets of data concurrently
+                const [data1, data2, data3] = await Promise.all([
+                    fetchData1(),
+                    fetchData2(),
+                    fetchData3(),
+                ]);
+
+                // Log the combined result of all three data fetches
+                console.log('Combined Result:', [data1, data2, data3]);
+                } catch (error) {
+                // Log any errors that occur during the data fetch
+                console.error('Error:', error.message);
+                }
+            }
+
+            // Call the fetchAllDataConcurrently function
+            fetchAllDataConcurrently();
+            &lt;/script&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
         </p>
       </code>
     </pre>

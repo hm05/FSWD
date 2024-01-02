@@ -23,7 +23,53 @@
     </div>
     <pre>
       <code>
+        <h4>        main.js</h4>
         <p>
+            // main.js
+
+            // Import modules
+            const mathOperations = require('./mathOperations');
+            const stringOperations = require('./stringOperations');
+
+            // Perform mathematical operations
+            console.log('Addition:', mathOperations.addition(5, 3));
+            console.log('Subtraction:', mathOperations.subtraction(8, 2));
+            console.log('Multiplication:', mathOperations.multiplication(4, 6));
+            console.log('Division:', mathOperations.division(10, 2));
+
+            // Perform string operations
+            console.log('Concatenation:', stringOperations.concatenation('Hello', 'World'));
+            console.log('Uppercase:', stringOperations.uppercase('hello'));
+            console.log('Lowercase:', stringOperations.lowercase('WORLD'));
+        </p>
+        <h4>        mathOperations.js</h4>
+        <p>
+            // mathOperations.js
+
+            // Function to perform addition
+            exports.addition = (a, b) => a + b;
+
+            // Function to perform subtraction
+            exports.subtraction = (a, b) => a - b;
+
+            // Function to perform multiplication
+            exports.multiplication = (a, b) => a * b;
+
+            // Function to perform division
+            exports.division = (a, b) => (b !== 0 ? a / b : 'Cannot divide by zero');
+        </p>
+        <h4>        stringOperations.js</h4>
+        <p>
+            // stringOperations.js
+
+            // Function to concatenate two strings
+            exports.concatenation = (str1, str2) => str1 + str2;
+
+            // Function to convert a string to uppercase
+            exports.uppercase = (str) => str.toUpperCase();
+
+            // Function to convert a string to lowercase
+            exports.lowercase = (str) => str.toLowerCase();
         </p>
       </code>
     </pre>

@@ -23,7 +23,28 @@
     </div>
     <pre>
       <code>
+        <h4>        main.js</h4>
         <p>
+            // Use dynamic import to load the asyncModule asynchronously
+            import('./asyncModule').then((asyncModule) => {
+                // Call the asynchronous function from the imported module
+                asyncModule.fetchDataAsync().then((result) => {
+                // Log the result
+                console.log('Result:', result);
+                });
+            });  
+        </p>
+        <h4>        asyncModule.js</h4>
+        <p>
+            // Asynchronous function to simulate fetching data with a 3-second delay
+            exports.fetchDataAsync = async () => {
+                return new Promise((resolve) => {
+                setTimeout(() => {
+                    const data = 'Async data fetched';
+                    resolve(data);
+                }, 3000); // 3-second delay
+                });
+            };
         </p>
       </code>
     </pre>

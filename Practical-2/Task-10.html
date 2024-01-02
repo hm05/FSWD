@@ -23,7 +23,24 @@
     </div>
     <pre>
       <code>
+        <h4>        main.js</h4>
         <p>
+            // Import the defaultExportModule
+            import square from './defaultExportModule';
+
+            // Use the default exported function to calculate the square of a given number
+            const numberToSquare = 5;
+            const result = square(numberToSquare);
+
+            // Log the result
+            console.log(`Square of ${numberToSquare} is: ${result}`);
+        </p>
+        <h4>        defaultExportModule.js</h4>
+        <p>
+            // Default function to calculate the square of a number
+            export default function square(number) {
+                return number * number;
+            }
         </p>
       </code>
     </pre>

@@ -24,6 +24,62 @@
     <pre>
       <code>
         <p>
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Task-2&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+
+            &lt;script&gt;
+            // Function to simulate fetching the first data
+            function fetchFirstData() {
+                return new Promise((resolve) =&gt; {
+                setTimeout(() =&gt; {
+                    const data = 'First Data';
+                    resolve(data);
+                }, 2000); // 2-second delay
+                });
+            }
+
+            // Function to simulate fetching the second data
+            function fetchSecondData(firstData) {
+                return new Promise((resolve) =&gt; {
+                setTimeout(() =&gt; {
+                    const data = `${firstData}, Second Data`;
+                    resolve(data);
+                }, 2000); // 2-second delay
+                });
+            }
+
+            // Function to simulate fetching the third data
+            function fetchThirdData(secondData) {
+                return new Promise((resolve) =&gt; {
+                setTimeout(() =&gt; {
+                    const data = `${secondData}, Third Data`;
+                    resolve(data);
+                }, 2000); // 2-second delay
+                });
+            }
+
+            // Use Promise chaining to fetch data sequentially
+            fetchFirstData()
+                .then((firstData) =&gt; fetchSecondData(firstData))
+                .then((secondData) =&gt; fetchThirdData(secondData))
+                .then((finalResult) =&gt; {
+                // Log the combined result of all three data fetches
+                console.log('Combined Result:', finalResult);
+                })
+                .catch((error) =&gt; {
+                // Handle errors if any of the promises are rejected
+                console.error('Error:', error.message);
+                });
+            &lt;/script&gt;
+
+            &lt;/body&gt;
+            &lt;/html&gt;
         </p>
       </code>
     </pre>

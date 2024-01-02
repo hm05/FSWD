@@ -24,6 +24,70 @@
     <pre>
       <code>
         <p>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Task-6&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;script&gt;
+    // Asynchronous function to simulate fetching the first data
+    async function fetchFirstData() {
+        return new Promise((resolve) =&gt; {
+        setTimeout(() =&gt; {
+            const data = 'First Data';
+            resolve(data);
+        }, 2000); // 2-second delay
+        });
+    }
+
+    // Asynchronous function to simulate fetching the second data
+    async function fetchSecondData(firstData) {
+        return new Promise((resolve) =&gt; {
+        setTimeout(() =&gt; {
+            const data = `${firstData}, Second Data`;
+            resolve(data);
+        }, 2000); // 2-second delay
+        });
+    }
+
+    // Asynchronous function to simulate fetching the third data
+    async function fetchThirdData(secondData) {
+        return new Promise((resolve) =&gt; {
+        setTimeout(() =&gt; {
+            const data = `${secondData}, Third Data`;
+            resolve(data);
+        }, 2000); // 2-second delay
+        });
+    }
+
+    // Use async/await to fetch data sequentially
+    async function fetchDataSequentially() {
+        try {
+        // Fetch the first data
+        const firstData = await fetchFirstData();
+        
+        // Fetch the second data using the first data
+        const secondData = await fetchSecondData(firstData);
+
+        // Fetch the third data using the second data
+        const thirdData = await fetchThirdData(secondData);
+
+        // Log the combined result of all three data fetches
+        console.log('Combined Result:', thirdData);
+        } catch (error) {
+        // Log any errors that occur during the data fetch
+        console.error('Error:', error.message);
+        }
+    }
+
+    // Call the fetchDataSequentially function
+    fetchDataSequentially();
+    &lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
         </p>
       </code>
     </pre>
