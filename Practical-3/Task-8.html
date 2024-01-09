@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-8</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" type="image/x-icon" href="../Assets/Logo.ico">
+</head>
+<body>
+    <div class="navlogo">
+        <a href="index.html"><img src="../Assets/Harsh.png" alt="Harsh" width="150px"></a>
+    </div>
+    <div class="MainBody">
+        <div class="center">
+            <img src="../Assets/ProfilePic.png" alt="Harsh Murjani" width="150px">
+            <h3>HARSH<br>MURJANI</h3>
+        </div>
+    </div>
+    <div class="MainBody">
+      <div class="center">
+        <h3>Task-8</h3>
+      </div>
+    </div>
+    <pre>
+      <code>
+        <p>
+const http = require('http');
+const url = require('url');
+const querystring = require('querystring');
+
+let userData = {
+  name: 'Harsh Murjani',
+  age: 19,
+};
+
+function handleGetRequest(req, res) {
+  const parsedUrl = url.parse(req.url, true);
+  const path = parsedUrl.pathname;
+
+  if (path === '/get-user-data') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(userData));
+  } else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('Endpoint Not Found');
+  }
+}
+
+function handlePostRequest(req, res) {
+  let body = '';
+  req.on('data', chunk => {
+    body += chunk.toString();
+  });
+
+  req.on('end', () => {
+    const parsedBody = querystring.parse(body);
+    if (parsedBody.name && parsedBody.age) {
+      userData = {
+        name: parsedBody.name,
+        age: parseInt(parsedBody.age, 10),
+      };
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(userData));
+    } else {
+      res.writeHead(400, { 'Content-Type': 'text/plain' });
+      res.end('Invalid Request - Please provide valid name and age in the request body');
+    }
+  });
+}
+
+const server = http.createServer((req, res) => {
+  if (req.method === 'GET') {
+    handleGetRequest(req, res);
+  } else if (req.method === 'POST') {
+    handlePostRequest(req, res);
+  } else {
+    res.writeHead(405, { 'Content-Type': 'text/plain' });
+    res.end('Method Not Allowed');
+  }
+});
+
+const PORT = 8080;
+server.listen(PORT, () => {
+  console.log(`Server is up and running on port ${PORT}`);
+});
+        </p>
+      </code>
+    </pre>
+    <div class="MainBody">
+      <div class="center">
+        <a href="./index.html"><p>&lt; Back</p></a>
+      </div>
+      <div class="center"></div>
+      <div class="center">
+        <button>
+            <a href="./code/code-8.js" download="22IT079.Practical-3.Task-8.js" id="download">
+                <div class="download_button">
+                    <img width="20" height="20" src="https://img.icons8.com/pastel-glyph/64/download--v1.png" alt="download" style="margin: auto"/>
+                    &nbsp;
+                    <p>Download</p>
+                </div>
+            </a>
+        </button>
+      </div>
+    </div>
+    <div class="MainBody">
+      <div class="center">
+          <h3>SOCIAL LINKS</h3>
+          <a href="https://github.com/hm05" target="_blank" rel="noopener noreferrer">    
+              <div class="sociallinks">
+                  <div class="github"><img width="30" height="30" src="https://img.icons8.com/pulsar-line/48/github.png" alt="github"/></div>
+                  <div class="github">Github</div>
+              </div>
+          </a>
+          <a href="https://www.linkedin.com/in/harsh-murjani/" target="_blank" rel="noopener noreferrer">
+              <div class="sociallinks">
+                      <div class="linkedin"><img width="30" height="30" src="https://img.icons8.com/pulsar-line/48/linkedin.png" alt="linkedin"/></div>
+                      <div class="linkedin">LinkedIn</div>
+              </div>
+          </a>
+          <a href="mailto:harshmurjani@icloud.com" target="_blank" rel="noopener noreferrer">
+              <div class="sociallinks">
+                  <div class="mail"><img width="30" height="30" src="https://img.icons8.com/pulsar-line/48/secured-letter.png" alt="mail"/></div>
+                  <div class="mail">Mail</div>
+              </div>
+          </a>
+      </div>
+      <div class="center">
+          <h3>NAVIGATION LINKS</h3>
+          <a href="https://hm05.github.io/Resume/"><p>Portfolio</p></a>
+          <a href="https://hm05.github.io/Resume/about.html"><p>About Me</p></a>
+          <a href="https://hm05.github.io/Resume/project.html"><p>Projects</p></a>
+      </div>
+      <div class="center">
+          <h3>OTHER LINKS</h3>
+          <a href="../Assets/Resume.pdf" download="Resume"><p>Resume</p></a><br>
+      </div>
+  </div>
+  <div class="footer">
+      <p>Made with <span style="font-size:100%; color:red;">&hearts;</span> by Harsh</p>
+  </div>
+</body>
+</html>

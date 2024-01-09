@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" type="image/x-icon" href="../Assets/Logo.ico">
+</head>
+<body>
+    <div class="navlogo">
+        <a href="index.html"><img src="../Assets/Harsh.png" alt="Harsh" width="150px"></a>
+    </div>
+    <div class="MainBody">
+        <div class="center">
+            <img src="../Assets/ProfilePic.png" alt="Harsh Murjani" width="150px">
+            <h3>HARSH<br>MURJANI</h3>
+        </div>
+    </div>
+    <div class="MainBody">
+      <div class="center">
+        <h3>Task-6</h3>
+      </div>
+    </div>
+    <pre>
+      <code>
+        <p>
+const fs = require('fs');
+
+// Function to read file content and return it as a Buffer
+function readFileToBuffer(filePath) {
+  const fileContent = fs.readFileSync(filePath, 'utf-8');
+  const buffer = Buffer.from(fileContent, 'utf-8');
+  return buffer;
+}
+
+// Function to manipulate a Buffer by swapping its halves
+function manipulateBuffer(buffer) {
+  const firstHalf = buffer.slice(0, Math.floor(buffer.length / 2));
+  const secondHalf = buffer.slice(Math.floor(buffer.length / 2));
+  const concatenatedBuffer = Buffer.concat([secondHalf, firstHalf]);
+  return concatenatedBuffer;
+}
+
+// Function to convert a Buffer back to text
+function bufferToText(buffer) {
+  return buffer.toString('utf-8');
+}
+
+// Function to perform base64 encoding and decoding on a Buffer
+function base64EncodingDecoding(buffer) {
+  const base64Encoded = buffer.toString('base64');
+  const base64DecodedBuffer = Buffer.from(base64Encoded, 'base64');
+  const base64DecodedText = base64DecodedBuffer.toString('utf-8');
+  return { base64Encoded, base64DecodedText };
+}
+
+// File path to the text file
+const filePath = 'example.txt';
+
+// Read the file content and convert it to a Buffer
+const originalBuffer = readFileToBuffer(filePath);
+console.log('Original Buffer:', originalBuffer);
+
+// Manipulate the Buffer by swapping its halves
+const manipulatedBuffer = manipulateBuffer(originalBuffer);
+console.log('Manipulated Buffer:', manipulatedBuffer);
+
+// Convert the manipulated Buffer back to text
+const textFromBuffer = bufferToText(manipulatedBuffer);
+console.log('Text from Manipulated Buffer:', textFromBuffer);
+
+// Perform base64 encoding and decoding on the original Buffer
+const { base64Encoded, base64DecodedText } = base64EncodingDecoding(originalBuffer);
+console.log('Base64 Encoded:', base64Encoded);
+console.log('Base64 Decoded Text:', base64DecodedText);
+        </p>
+      </code>
+    </pre>
+    <div class="MainBody">
+      <div class="center">
+        <a href="./index.html"><p>&lt; Back</p></a>
+      </div>
+      <div class="center"></div>
+      <div class="center">
+        <button>
+            <a href="./code/code-6.js" download="22IT079.Practical-3.Task-6.js" id="download">
+                <div class="download_button">
+                    <img width="20" height="20" src="https://img.icons8.com/pastel-glyph/64/download--v1.png" alt="download" style="margin: auto"/>
+                    &nbsp;
+                    <p>Download</p>
+                </div>
+            </a>
+        </button>
+      </div>
+    </div>
+    <div class="MainBody">
+      <div class="center">
+          <h3>SOCIAL LINKS</h3>
+          <a href="https://github.com/hm05" target="_blank" rel="noopener noreferrer">    
+              <div class="sociallinks">
+                  <div class="github"><img width="30" height="30" src="https://img.icons8.com/pulsar-line/48/github.png" alt="github"/></div>
+                  <div class="github">Github</div>
+              </div>
+          </a>
+          <a href="https://www.linkedin.com/in/harsh-murjani/" target="_blank" rel="noopener noreferrer">
+              <div class="sociallinks">
+                      <div class="linkedin"><img width="30" height="30" src="https://img.icons8.com/pulsar-line/48/linkedin.png" alt="linkedin"/></div>
+                      <div class="linkedin">LinkedIn</div>
+              </div>
+          </a>
+          <a href="mailto:harshmurjani@icloud.com" target="_blank" rel="noopener noreferrer">
+              <div class="sociallinks">
+                  <div class="mail"><img width="30" height="30" src="https://img.icons8.com/pulsar-line/48/secured-letter.png" alt="mail"/></div>
+                  <div class="mail">Mail</div>
+              </div>
+          </a>
+      </div>
+      <div class="center">
+          <h3>NAVIGATION LINKS</h3>
+          <a href="https://hm05.github.io/Resume/"><p>Portfolio</p></a>
+          <a href="https://hm05.github.io/Resume/about.html"><p>About Me</p></a>
+          <a href="https://hm05.github.io/Resume/project.html"><p>Projects</p></a>
+      </div>
+      <div class="center">
+          <h3>OTHER LINKS</h3>
+          <a href="../Assets/Resume.pdf" download="Resume"><p>Resume</p></a><br>
+      </div>
+  </div>
+  <div class="footer">
+      <p>Made with <span style="font-size:100%; color:red;">&hearts;</span> by Harsh</p>
+  </div>
+</body>
+</html>
